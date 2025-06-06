@@ -1,0 +1,16 @@
+<odoo>
+<data>
+
+    <record id="ir_cron_loan_chatter" model="ir.cron">
+            <field name="name">loan</field>
+            <field name="model_id" ref="model_library_loan"/>
+            <field name="state">code</field>
+            <field name="code">model._run_date_delai()</field>
+            <field eval="True" name="active"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+    </record>
+
+</data>
+</odoo>

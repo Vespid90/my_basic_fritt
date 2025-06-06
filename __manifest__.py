@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "budget_manager",
+    'name': "basic_fritt",
 
     'summary': "Gestionnaire de budget pour entreprise",
 

@@ -68,16 +68,13 @@
             <field name="search_view_id" ref="fritt_trainer_search_view"/>
         </record>
 
-        <menuitem id="fritt_trainer_menu_root"
-                  name="Basic Fritt"
-                  web_icon="my_basic_fritt,static/description/icon.png"/>
 
         <menuitem
                 id="basc_fritt_menu"
                 name="Trainers"
-                parent="fritt_trainer_menu_root"
+                parent="fritt_member_root"
                 action="open_fritt_trainer_views"
-                sequence="1"/>
+                sequence="4"/>
 
     </data>
 </odoo>

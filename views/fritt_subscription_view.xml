@@ -40,6 +40,7 @@
                             <field name="time_access" readonly="1"/>
                         </group>
                         <group>
+                            <field name="time"/>
                             <field name="price" widget="monetary" readonly="1"/>
                             <field name="currency_id" invisible="True" readonly="1"/>
                         </group>
@@ -64,7 +65,7 @@
             <field name="state">code</field>
             <field name="code">
                 for record in records:
-                    sub_info = f"Subscription type: {record.type}, subscription time: {record.time_access} days, price: {record.price} dollars"
+                    sub_info = f"Subscription type: {record.type}, subscription time: {record.time_access} days per month, price: {record.price} dollars"
                     record.message_post(body=sub_info)
             </field>
         </record>

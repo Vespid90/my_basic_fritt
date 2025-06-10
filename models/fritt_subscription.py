@@ -13,7 +13,7 @@ class FrittSubscription (models.Model):
     time = fields.Integer(string='Subscription time remaining')
     type = fields.Selection(selection=[('basic', 'Basic'), ('premium','Premium'), ('vip', 'Vip')], string='Subscription type')
     price = fields.Float(string='Price', store=True)
-    time_access = fields.Selection(selection=[('10', '10 days'),('30','30 days'), ('illimited', 'Illimited')], string="Time's access", store=True)
+    time_access = fields.Selection(selection=[('10', '10 days per month'),('30','30 days per month'), ('illimited', 'Illimited')], string="Time's access", store=True)
     description = fields.Char(string="Member's subscription")
     sequence = fields.Integer(default=10)
     color = fields.Integer(string="Color")
@@ -23,8 +23,6 @@ class FrittSubscription (models.Model):
     member_ids = fields.One2many(comodel_name='fritt.member', inverse_name='subscription_id', string='Members name')
 
 
-
-#faire un create
     @api.onchange('type')
     def _onchange_type(self):
         match self.type:
@@ -71,8 +69,3 @@ class FrittSubscription (models.Model):
                 vals['time_access'] = 'illimited'
                 vals['price'] = 60
         return super().write(vals)
-
-    # def _action_share_sub(self):
-    #     for record in self:
-    #         sub_info = f"Subscription type: {record.type}, subscription time: {record.time_access}, price: {record.price}"
-    #         record.message_post(body=sub_info)

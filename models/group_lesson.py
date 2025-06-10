@@ -23,12 +23,22 @@ class GroupeLesson(models.Model):
     roam = fields.Selection(selection=[("parquet", "Parquet"), ("mini_football", "Mini football"), ("dojo", "Dojo")])
     note = fields.Selection(tracking=True,selection=review_list_note,default='null',string="Note")
     # relation
-    member_registered_number=fields.Integer(string="member registered number")
-    # relation
-    member_registered=fields.Integer(string="member registered")
+
     active = fields.Boolean(string="active")
 
     sequence = fields.Integer(default=10)
+    # relation
+
+    member_registered = fields.Many2many(string="member registered", comodel_name="fritt.member")
+    member_registered_number = fields.Integer("member registered", compute="_compute_im_status")
+
+    @api.depends('member_registered')
+    def _compute_im_status(self):
+        """Compute the im_status of the users"""
+
+        for record in self:
+            # if record.list_id:
+            record.member_registered_number=len(record.member_registered)
 
 
 

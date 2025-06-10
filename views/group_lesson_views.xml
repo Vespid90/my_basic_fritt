@@ -29,7 +29,7 @@
               <field name="roam"/>
               <field name="note" widget="priority"/>
               <field name="member_registered_number"/>
-              <field name="member_registered"/>
+              <field name="member_registered" widget="many2many_tags"/>
               <field name="cover"/>
               <field name="active"/>
         </list>
@@ -73,10 +73,18 @@
                           <field name="roam"/>
                           <field name="note" widget="priority"/>
                           <field name="member_registered_number"/>
-                          <field name="member_registered"/>
                           <field name="active"/>
                           <field name="cover" alt="cover-image" class="h-100" widget="image" options="{'img_class': 'object-fit-cover'}"/>
                     </group>
+                   <group>
+                    <notebook>
+                        <page string="member">
+                            <group>
+                                <field name="member_registered" nolabel="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </group>
                 </group>
             </sheet>
           </form>

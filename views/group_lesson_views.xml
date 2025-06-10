@@ -1,0 +1,121 @@
+<odoo>
+<data>
+
+    <record model="ir.ui.view" id="group_lesson_search">
+      <field name="name">fritt.group.lesson.search</field>
+      <field name="model">fritt.group.lesson</field>
+      <field name="arch" type="xml">
+          <search>
+              <filter string="archived" name="filtre_inactive" domain="[('active','=',False)]"/>
+
+          </search>
+
+
+      </field>
+    </record>
+    <record model="ir.ui.view" id="group_lesson_list">
+      <field name="name">fritt.group.lesson.list</field>
+      <field name="model">fritt.group.lesson</field>
+      <field name="arch" type="xml">
+        <list>
+              <field name="sequence" widget="handle"/>
+              <field name="name"/>
+              <field name="Coach"/>
+              <field name="date_lesson"/>
+              <field name="duration"/>
+              <field name="start_lesson"/>
+              <field name="end_lesson"/>
+              <field name="member_max"/>
+              <field name="roam"/>
+              <field name="note" widget="priority"/>
+              <field name="member_registered_number"/>
+              <field name="member_registered"/>
+              <field name="cover"/>
+              <field name="active"/>
+        </list>
+      </field>
+
+    </record>
+    <record id="my_group_actions_window" model="ir.actions.act_window" >
+      <field name="name">group lesson</field>
+      <field name="res_model">fritt.group.lesson</field>
+      <field name="view_mode">kanban,list,form</field>
+      <field name="search_view_id" ref="group_lesson_search"/>
+<!--      <field name="context">{'default_active': True}  </field>-->
+    </record>
+
+
+    <record model="ir.ui.view" id="group_lesson_form">
+
+      <field name="name">fritt.group.lesson.form</field>
+      <field name="model">fritt.group.lesson</field>
+      <field name="arch" type="xml">
+          <form>
+              <sheet>
+                   <widget name="web_ribbon" text="Archived" bg_color="bg-danger" invisible="active"/>
+                   <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                          <field name="name"/>
+                          <field name="Coach"/>
+                          <field name="date_lesson"/>
+                          <field name="duration"/>
+                          <field name="start_lesson"/>
+                          <field name="end_lesson"/>
+
+                        </group>
+                    <group>
+                          <field name="member_max"/>
+                          <field name="roam"/>
+                          <field name="note" widget="priority"/>
+                          <field name="member_registered_number"/>
+                          <field name="member_registered"/>
+                          <field name="active"/>
+                          <field name="cover" alt="cover-image" class="h-100" widget="image" options="{'img_class': 'object-fit-cover'}"/>
+                    </group>
+                </group>
+            </sheet>
+          </form>
+      </field>
+
+    </record>
+<record id="group_lesson_kanban" model="ir.ui.view">
+            <field name="name">fritt.group.lesson.kanban</field>
+            <field name="model">fritt.group.lesson</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <templates>
+                        <t t-name="card" class="flex-row">
+
+                            <aside class="o_kanban_aside_full">
+                                  <div class="o_kanban_image_fill position-relative w-100">
+                                      <field name="cover" alt="cover-image" class="h-100" widget="image" options="{'img_class': 'object-fit-cover'}"/>
+                                  </div>
+                            </aside>
+                            <main class="ps-2 ps-md-0">
+                                <div class="mb-1">
+                                    <field name="name"/>
+                                </div>
+                                    <field name="Coach"/>
+                                    <field name="date_lesson"/>
+                                    <field name="duration"/>
+                                    <field name="start_lesson"/>
+                            </main>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+<menuitem id="group_menu_root" name="fritt" web_icon="my_basic_fritt,static/description/icon.png" />
+<menuitem id="group_menu_menu" name="group lesson"  parent="group_menu_root" action="my_group_actions_window"/>
+
+</data>
+
+
+</odoo>

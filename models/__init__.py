@@ -1,1 +1,1 @@
-from . import fritt_subscription
+from . import fritt_member,group_lesson,fritt_subscription

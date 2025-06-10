@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="fritt_trainer_search_view" model="ir.ui.view">
+            <field name="name">fritt_trainer_search_views</field>
+            <field name="model">fritt.trainer</field>
+            <field name="arch" type="xml">
+                <search>
+                    <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                    <field name="name"/>
+                    <field name="specialty"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="fritt_trainer_list_view" model="ir.ui.view">
+            <field name="name">fritt_trainer_list_views</field>
+            <field name="model">fritt.trainer</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="mail"/>
+                    <field name="phone"/>
+                    <field name="specialty"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="fritt_trainer_form_view" model="ir.ui.view">
+            <field name="name">fritt_trainer_form_views</field>
+            <field name="model">fritt.trainer</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                        <group>
+                            <field name="name"/>
+                            <field name="mail"/>
+                            <field name="phone"/>
+                            <field name="specialty"/>
+                            <field name="image"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="fritt_trainer_kanban_view" model="ir.ui.view">
+            <field name="name">fritt_trainer_kanban_view</field>
+            <field name="model">fritt.trainer</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile" sample="1">
+                    <t t-name="card" class="flex-row">
+                        <field name="name"/>
+                        <field name="phone"/>
+                        <field name="specialty"/>
+                        <field name="image"/>
+                    </t>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="open_fritt_trainer_views" model="ir.actions.act_window">
+            <field name="name">Trainer</field>
+            <field name="res_model">fritt.trainer</field>
+            <field name="view_mode">search,list,form,kanban</field>
+            <field name="search_view_id" ref="fritt_trainer_search_view"/>
+        </record>
+
+
+        <menuitem
+                id="basc_fritt_menu"
+                name="Trainers"
+                parent="fritt_member_root"
+                action="open_fritt_trainer_views"
+                sequence="4"/>
+
+    </data>
+</odoo>

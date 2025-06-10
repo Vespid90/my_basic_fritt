@@ -26,6 +26,7 @@ Gestionnaire de budget pour entreprise
         'views/fritt_subscription_view.xml',
         'views/fritt_member_views.xml',
         'views/group_lesson_views.xml',
+        'views/fritt_trainer_views.xml',
     ],
     # only loaded in demonstration mode
     # 'demo': [

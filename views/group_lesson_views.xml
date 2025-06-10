@@ -112,8 +112,8 @@
         </record>
 
 
-<menuitem id="group_menu_root" name="fritt" web_icon="my_basic_fritt,static/description/icon.png" />
-<menuitem id="group_menu_menu" name="group lesson"  parent="group_menu_root" action="my_group_actions_window"/>
+
+<menuitem id="group_lesson_menu" name="Group Lesson"  parent="fritt_member_root" sequence="3" action="my_group_actions_window"/>
 
 </data>
 

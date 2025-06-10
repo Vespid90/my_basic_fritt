@@ -23,14 +23,12 @@ Gestionnaire de budget pour entreprise
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'views/budget_planner_view.xml',
-        'views/budget_line_view.xml',
+        'views/fritt_member_views.xml',
     ],
     # only loaded in demonstration mode
-    'demo': [
-        'demo/demo.xml',
-    ],
+    # 'demo': [
+    #     'demo/demo.xml',
+    # ],
     'installable': True,
     'application': True,
-    'auto_install': True,
 }

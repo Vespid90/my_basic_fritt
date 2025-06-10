@@ -20,7 +20,9 @@
                     <field name="name"/>
                     <field name="time"/>
                     <field name="type"/>
-                    <field name="price"/>
+                    <field name="time_access" readonly="1"/>
+                    <field name="price" widget="monetary" readonly="1"/>
+                    <field name="currency_id" column_invisible="True"/>
                     <field name="color" widget="color_picker"/>
                 </list>
             </field>
@@ -34,11 +36,12 @@
                         <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
                         <group>
                             <field name="name"/>
-                            <field name="time"/>
+                            <field name="type"/>
+                            <field name="time_access" readonly="1"/>
                         </group>
                         <group>
-                            <field name="type"/>
-                            <field name="price"/>
+                            <field name="price" widget="monetary" readonly="1"/>
+                            <field name="currency_id" invisible="True" readonly="1"/>
                         </group>
                         <chatter/>
                     </sheet>

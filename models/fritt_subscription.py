@@ -17,4 +17,5 @@ class FrittSubscription (models.Model):
     sequence = fields.Integer(default=10)
     color = fields.Integer(string="Color")
     date_today = fields.Datetime()
-    # date_today = datetime.now()
+    member_ids = fields.One2many(comodel_name='fritt.member', inverse_name='subscription_id', string='Members name')
+

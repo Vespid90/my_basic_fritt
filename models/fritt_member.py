@@ -11,12 +11,11 @@ class FrittMember(models.Model):
     phonenumber = fields.Char(string="Phone")
     birthdate = fields.Date(string="BirthDate")
     subscriptiondate = fields.Date(string="Subscription Date")
-    # subscription_id = fields.Many2one(
-    #     comodel_name='fritt.subscription',
-    #     string='Subscription'
-    # )
-
-    # course_ids = fields.Many2many(
-    #     comodel_name='fritt.course',
-    #     string='Courses'
-    # )
+    subscription_id = fields.Many2one(
+        comodel_name='fritt.subscription',
+        string='Subscription'
+    )
+    group_lesson_ids = fields.Many2many(
+        comodel_name='group.lesson',
+        string='Courses'
+    )

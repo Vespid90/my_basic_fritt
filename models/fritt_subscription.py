@@ -22,7 +22,6 @@ class FrittSubscription (models.Model):
                                   default=lambda self: self.env.company.currency_id)
     member_ids = fields.One2many(comodel_name='fritt.member', inverse_name='subscription_id', string='Members name')
 
-
     @api.onchange('type')
     def _onchange_type(self):
         match self.type:
@@ -35,7 +34,6 @@ class FrittSubscription (models.Model):
             case 'vip':
                 self.time_access = 'illimited'
                 self.price = 60
-
 
     @api.model_create_multi
     def create(self, vals_list):

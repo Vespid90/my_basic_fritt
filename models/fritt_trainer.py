@@ -8,6 +8,11 @@ class FrittTrainer(models.Model):
     name = fields.Char(string='Name')
     mail = fields.Char(string='Mail')
     phone = fields.Integer(string='Phone')
-    specialty  = fields.Char(string='Specialty')
-    image = fields.Binary(string='Image')
-    rude = fields.Binary(string='Image')
+    specialty  = fields.Selection([
+        ('cardio', "Cardio"),
+        ('basketball', "Basketball"),
+        ('soccer', "Soccer"),
+    ], string="Specialty")
+    image = fields.Binary(string="Image")
+
+

@@ -20,7 +20,7 @@ class FrittSubscription (models.Model):
     date_today = fields.Datetime()
     currency_id = fields.Many2one(comodel_name='res.currency', string='Devise',
                                   default=lambda self: self.env.company.currency_id)
-    # member_ids = fields.One2many(comodel_name='fritt.member', inverse_name='subscription_id', string='Members name')
+    member_ids = fields.One2many(comodel_name='fritt.member', inverse_name='subscription_id', string='Members name')
 
 
 

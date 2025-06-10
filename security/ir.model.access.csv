@@ -1,3 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_my_basic_fritt_member_system,fritt.member,model_fritt_member,base.group_system,1,1,1,1
 access_my_basic_fritt_member_user,fritt.member,model_fritt_member,base.group_user,1,0,0,0
+access_my_basic_fritt_group_lesson_system,fritt.group.lesson,model_fritt_group_lesson,base.group_system,1,1,1,1
+access_my_basic_fritt_group_lesson_user,fritt.group.lesson,model_fritt_group_lesson,base.group_user,1,0,0,0

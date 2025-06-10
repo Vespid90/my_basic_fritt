@@ -24,6 +24,7 @@ Gestionnaire de budget pour entreprise
     'data': [
         'security/ir.model.access.csv',
         'views/fritt_member_views.xml',
+        'views/group_lesson_views.xml',
     ],
     # only loaded in demonstration mode
     # 'demo': [

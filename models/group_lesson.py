@@ -14,7 +14,7 @@ class GroupeLesson(models.Model):
     _rec_name = "name"
     name = fields.Char(string="Name")
     cover = fields.Binary(string='cover')
-    Coach = fields.Selection(selection=[("olivier", "Olivier Harven"), ("jean", "Jean Letor"), ("rudi", "Rudis Hanuise")])
+    # Coach = fields.Selection(selection=[("olivier", "Olivier Harven"), ("jean", "Jean Letor"), ("rudi", "Rudis Hanuise")])
     date_lesson=fields.Date(string="Date")
     duration=fields.Selection(selection=[("60", "1h"), ("90", "1h30"), ("120", "2h")])
     start_lesson = fields.Char(string="start lesson")
@@ -31,6 +31,10 @@ class GroupeLesson(models.Model):
 
     member_registered = fields.Many2many(string="member registered", comodel_name="fritt.member")
     member_registered_number = fields.Integer(string="Total member registered", compute="_compute_im_status")
+    trainer_id = fields.Many2one(
+        comodel_name='fritt.trainer',
+        string='Coach'
+    )
 
     @api.depends('member_registered')
     def _compute_im_status(self):

@@ -71,3 +71,8 @@ class FrittSubscription (models.Model):
                 vals['time_access'] = 'illimited'
                 vals['price'] = 60
         return super().write(vals)
+
+    # def _action_share_sub(self):
+    #     for record in self:
+    #         sub_info = f"Subscription type: {record.type}, subscription time: {record.time_access}, price: {record.price}"
+    #         record.message_post(body=sub_info)

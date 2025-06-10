@@ -57,6 +57,17 @@
                 </calendar>
             </field>
         </record>
+        <record id="fritt_subscription_action_share" model="ir.actions.server">
+            <field name="name">Share subscription info</field>
+            <field name="model_id" ref="model_fritt_subscription"/>
+            <field name="binding_view_types">form</field>
+            <field name="state">code</field>
+            <field name="code">
+                for record in records:
+                    sub_info = f"Subscription type: {record.type}, subscription time: {record.time_access} days, price: {record.price} dollars"
+                    record.message_post(body=sub_info)
+            </field>
+        </record>
         <record id="open_view_fritt_subscription_action" model="ir.actions.act_window">
             <field name="name">Subscription</field>
             <field name="res_model">fritt.subscription</field>

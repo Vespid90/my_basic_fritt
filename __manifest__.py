@@ -23,8 +23,8 @@ Gestionnaire de budget pour entreprise
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'views/fritt_subscription_view.xml',
         'views/fritt_member_views.xml',
+        'views/fritt_subscription_view.xml',
         'views/group_lesson_views.xml',
         'views/fritt_trainer_views.xml',
     ],

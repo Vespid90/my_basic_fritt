@@ -10,7 +10,8 @@ class FrittMember(models.Model):
     mail = fields.Char(string="Mail")
     phonenumber = fields.Char(string="Phone")
     birthdate = fields.Date(string="BirthDate")
-    subscriptiondate = fields.Date(string="Subscription Date")
+    subscription_date = fields.Date(string="Subscription Date")
+    is_show_vip = fields.Boolean(compute='_is_show_vip')
     subscription_id = fields.Many2one(
         comodel_name='fritt.subscription',
         string='Subscription'
@@ -19,3 +20,17 @@ class FrittMember(models.Model):
         comodel_name='fritt.group.lesson',
         string='Courses'
     )
+
+    @api.model
+    def default_get(self, fields_list):
+
+        defaults = super().default_get(fields_list)
+        if 'subscription_date' in fields_list:
+            defaults['subscription_date'] = fields.Date.today()
+
+        return defaults
+
+    @api.depends('subscription_id')
+    def _is_show_vip(self):
+        for record in self:
+            record.is_show_vip = False if record.subscription_id.type == 'vip' else True

@@ -4,6 +4,6 @@ access_my_basic_fritt_member_user,fritt.member,model_fritt_member,base.group_use
 access_my_basic_fritt_group_lesson_system,fritt.group.lesson,model_fritt_group_lesson,base.group_system,1,1,1,1
 access_my_basic_fritt_group_lesson_user,fritt.group.lesson,model_fritt_group_lesson,base.group_user,1,0,0,0
 access_my_basic_fritt_fritt_suscription_system,fritt.subscription,model_fritt_subscription,base.group_system,1,1,1,1
-access_my_basic_fritt_fritt_suscription_system,fritt.subscription,model_fritt_subscription,base.group_system,1,1,1,1
+access_my_basic_fritt_fritt_suscription_user,fritt.subscription,model_fritt_subscription,base.group_user,1,1,1,1
 access_my_basic_fritt_trainer_system,fritt_trainer_group_system,model_fritt_trainer,base.group_system,1,1,1,1
 access_my_basic_fritt_trainer_user,fritt_trainer_group_user,model_fritt_trainer,base.group_user,1,0,0,0

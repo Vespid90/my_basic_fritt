@@ -1,3 +1,2 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_my_library_library_book_system,library.book,model_library_book,base.group_system,1,1,1,1
-access_my_library_library_book_user,library.book,model_library_book,base.group_user,1,0,0,0
+access_fritt_trainer_user,fritt_trainer_group_user,model_fritt_trainer,base.group_user,1,1,1,1

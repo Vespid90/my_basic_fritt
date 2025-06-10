@@ -71,7 +71,7 @@
 
         <menuitem
                 id="basc_fritt_menu"
-                name="Trainers"
+                name="Coachs"
                 parent="fritt_member_root"
                 action="open_fritt_trainer_views"
                 sequence="4"/>

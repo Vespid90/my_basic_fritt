@@ -10,3 +10,4 @@ class FrittTrainer(models.Model):
     phone = fields.Integer(string='Phone')
     specialty  = fields.Char(string='Specialty')
     image = fields.Binary(string='Image')
+    rude = fields.Binary(string='Image')

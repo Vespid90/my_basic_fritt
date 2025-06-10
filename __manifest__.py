@@ -23,8 +23,7 @@ Gestionnaire de budget pour entreprise
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'views/budget_planner_view.xml',
-        'views/budget_line_view.xml',
+        'views/group_lesson_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

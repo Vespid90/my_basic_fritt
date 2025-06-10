@@ -30,7 +30,7 @@ class GroupeLesson(models.Model):
     # relation
 
     member_registered = fields.Many2many(string="member registered", comodel_name="fritt.member")
-    member_registered_number = fields.Integer("member registered", compute="_compute_im_status")
+    member_registered_number = fields.Integer(string="Total member registered", compute="_compute_im_status")
 
     @api.depends('member_registered')
     def _compute_im_status(self):

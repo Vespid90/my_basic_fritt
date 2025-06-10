@@ -16,6 +16,6 @@ class FrittMember(models.Model):
         string='Subscription'
     )
     group_lesson_ids = fields.Many2many(
-        comodel_name='group.lesson',
+        comodel_name='fritt.group.lesson',
         string='Courses'
     )

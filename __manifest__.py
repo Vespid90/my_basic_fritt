@@ -14,7 +14,7 @@ Gestionnaire de budget pour entreprise
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
-    'category': 'Budget manager',
+    'category': 'My basic fritt',
     'version': '0.1',
 
     # any module necessary for this one to work correctly
@@ -23,8 +23,7 @@ Gestionnaire de budget pour entreprise
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'views/budget_planner_view.xml',
-        'views/budget_line_view.xml',
+        'views/fritt_subscription_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -6,6 +6,8 @@
             <field name="model">fritt.member</field>
             <field name="arch" type="xml">
                 <search string="Members">
+                    <field name="name"/>
+                    <field name="subscription_id" string="Subscription"/>
                     <separator/>
                     <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
                     <group expand="0" string="Group By">
@@ -36,7 +38,8 @@
             <field name="model">fritt.member</field>
             <field name="arch" type="xml">
                 <form>
-                    <div class="oe_button_box" name="button_box">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
                             <button name="open_view_list_lessons" type="object" icon="fa-book"
                                     class="oe_stat_button" invisible="lesson_count == 0" widget="statinfo">
                                 <div class="o_stat_info">
@@ -45,7 +48,6 @@
                                 </div>
                             </button>
                         </div>
-                    <sheet>
                         <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
                         <field name="photo" widget="image" class="oe_avatar"/>
                         <div class="oe_title">

@@ -23,7 +23,7 @@
                     <field name="trainer_id"/>
                     <field name="date_lesson"/>
                     <field name="dur"/>
-                    <field name="roam"/>
+                    <field name="room"/>
                     <field name="member_max"/>
                     <button name="cancel" type="object"
                             string="cancel"
@@ -74,7 +74,7 @@
 
                                 <field name="note" widget="priority"/>
                                 <field name="member_registered_number"/>
-                                <field name="active"/>
+                                <field name="active" invisible="active==True"/>
                                 <field name="cover" alt="cover-image" class="h-100" widget="image"
                                        options="{'size' : [300,300] }"/>
 
@@ -84,7 +84,7 @@
                                     <page string="practical information">
                                         <group>
                                             <field name="member_max"/>
-                                            <field name="roam"/>
+                                            <field name="room"/>
                                         </group>
                                     </page>
                                     <page string="comment">
@@ -125,7 +125,7 @@
                                 </div>
                                 <field name="trainer_id"/>
                                 <field name="member_max"/>
-                                <field name="roam"/>
+                                <field name="room"/>
                             </main>
                         </t>
                     </templates>

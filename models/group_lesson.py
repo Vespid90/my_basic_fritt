@@ -21,7 +21,7 @@ class GroupeLesson(models.Model):
     start_lesson = fields.Float(string="start lesson")
     end_lesson = fields.Float(string="end lesson")
     member_max = fields.Integer(string="member max")
-    roam = fields.Selection(selection=[("parquet", "Parquet"), ("mini_football", "Mini football"), ("dojo", "Dojo")])
+    room = fields.Selection(selection=[("parquet", "Parquet"), ("mini_football", "Mini football"), ("dojo", "Dojo")])
     note = fields.Selection(selection=review_list_note, default='null', string="Note")
     # relation
     comment=fields.Text(string="comment")
@@ -57,6 +57,13 @@ class GroupeLesson(models.Model):
 
     def cancel(self):
         self.active=False
+
+        print(self.name)
+        print(self.trainer_id)
+        if self.trainer_id:
+            self.trainer_id.message_post(
+                body=f"lesson cancel is : {self.name} , the date is :{self.date_lesson} and is start in {self.start_lesson}")
+
 
         return True
 

@@ -9,6 +9,9 @@
                     <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
                     <field name="name"/>
                     <field name="specialty"/>
+                    <filter string="Cardio" name="cardio" domain="[('specialty', '=', 'cardio')]"/>
+                    <filter string="Basketball" name="basketball" domain="[('specialty', '=', 'basketball')]"/>
+                    <filter string="Soccer" name="soccer" domain="[('specialty', '=', 'soccer')]"/>
                 </search>
             </field>
         </record>
@@ -32,14 +35,20 @@
             <field name="model">fritt.trainer</field>
             <field name="arch" type="xml">
                 <form>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="open_planned_lesson" type="object" widget="statinfo" icon="fa-book">
+                            <field string="Planned Lessons" name="planned_lesson_count"/>
+                        </button>
+                    </div>
                     <sheet>
                         <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                        <field name="image" widget="image" class="oe_avatar"/>
                         <group>
                             <field name="name"/>
                             <field name="mail"/>
                             <field name="phone"/>
                             <field name="specialty"/>
-                            <field name="image"/>
+                            <field name="planned_lesson_ids"/>
                         </group>
                     </sheet>
                 </form>
@@ -50,28 +59,41 @@
             <field name="name">fritt_trainer_kanban_view</field>
             <field name="model">fritt.trainer</field>
             <field name="arch" type="xml">
-                <kanban class="o_kanban_mobile" sample="1">
-                    <t t-name="card" class="flex-row">
-                        <field name="name"/>
-                        <field name="phone"/>
-                        <field name="specialty"/>
-                        <field name="image"/>
-                    </t>
+                <kanban>
+                    <!--                        <field name="image" widget="image" class="oe_avatar"/>-->
+                    <templates>
+                        <t t-name="card" class="flex-row">
+                            <aside class="o_kanban_aside_full">
+                                <div class="o_kanban_image_fill position-relative w-100">
+                                    <field name="image" alt="cover-image" class="h-100" widget="image"
+                                           options="{'img_class': 'object-fit-cover'}"/>
+                                </div>
+                            </aside>
+                            <main class="ps-2 ps-md-0">
+                                <div class="mb-1">
+                                    <field name="name"/>
+                                </div>
+                                <field name="phone"/>
+                                <field name="specialty"/>
+                            </main>
+                        </t>
+                    </templates>
+
                 </kanban>
             </field>
         </record>
 
         <record id="open_fritt_trainer_views" model="ir.actions.act_window">
-            <field name="name">Trainer</field>
+            <field name="name">Coach</field>
             <field name="res_model">fritt.trainer</field>
-            <field name="view_mode">search,list,form,kanban</field>
+            <field name="view_mode">kanban,list,form,search</field>
             <field name="search_view_id" ref="fritt_trainer_search_view"/>
         </record>
 
 
         <menuitem
                 id="basc_fritt_menu"
-                name="Trainers"
+                name="Coachs"
                 parent="fritt_member_root"
                 action="open_fritt_trainer_views"
                 sequence="4"/>

@@ -16,7 +16,6 @@ class FrittSubscription (models.Model):
     time_access = fields.Selection(selection=[('10', '10 days per month'),('30','30 days per month'), ('illimited', 'Illimited')], string="Time's access", store=True)
     description = fields.Char(string="Member's subscription")
     sequence = fields.Integer(default=10)
-    color = fields.Integer(string="Color")
     date_today = fields.Datetime()
 
     #relations

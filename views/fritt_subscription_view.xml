@@ -14,7 +14,7 @@
             <field name="name">fritt.subscription.list</field>
             <field name="model">fritt.subscription</field>
             <field name="arch" type="xml">
-                <list editable="bottom">
+                <list>
                     <field name="sequence" widget="handle"/>
                     <field name="active" column_invisible="1"/>
                     <field name="name"/>
@@ -23,7 +23,6 @@
                     <field name="time_access" readonly="1"/>
                     <field name="price" widget="monetary" readonly="1"/>
                     <field name="currency_id" column_invisible="True"/>
-                    <field name="color" widget="color_picker"/>
                 </list>
             </field>
         </record>

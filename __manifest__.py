@@ -9,6 +9,7 @@ Gestionnaire de budget pour entreprise
     """,
 
     'author': "Vespid",
+    'license': "LGPL-3",
     'website': "https://www.yourcompany.com",
 
     # Categories can be used to filter modules in modules listing

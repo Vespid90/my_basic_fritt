@@ -1,14 +1,17 @@
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
+
 
 class FrittTrainer(models.Model):
     _name = 'fritt.trainer'
     _description = "My Basic Fritt"
+    _inherit = "mail.thread"
 
     active = fields.Boolean(string="Active", default='True')
     name = fields.Char(string='Name')
     mail = fields.Char(string='Mail')
     phone = fields.Integer(string='Phone')
-    specialty  = fields.Selection([
+    specialty = fields.Selection([
         ('cardio', "Cardio"),
         ('basketball', "Basketball"),
         ('soccer', "Soccer"),
@@ -17,12 +20,10 @@ class FrittTrainer(models.Model):
     planned_lesson_ids = fields.One2many(comodel_name="fritt.group.lesson", inverse_name="trainer_id", string="Planned Lessons")
     planned_lesson_count = fields.Integer(string="Total Planned Lessons", compute="_compute_planned_lesson")
 
-
-
     @api.depends('planned_lesson_ids')
     def _compute_planned_lesson(self):
         for record in self:
-            record.planned_lesson_count= len(record.planned_lesson_ids)
+            record.planned_lesson_count = len(record.planned_lesson_ids)
 
     def open_planned_lesson(self):
         action = {
@@ -32,5 +33,4 @@ class FrittTrainer(models.Model):
             'view_mode': 'kanban,list,form',
             'domain': [('trainer_id', '=', self.name)]
         }
-
         return action

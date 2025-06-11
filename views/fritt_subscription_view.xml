@@ -14,7 +14,7 @@
             <field name="name">fritt.subscription.list</field>
             <field name="model">fritt.subscription</field>
             <field name="arch" type="xml">
-                <list>
+                <list editable="bottom">
                     <field name="sequence" widget="handle"/>
                     <field name="active" column_invisible="1"/>
                     <field name="name"/>

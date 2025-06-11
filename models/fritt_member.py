@@ -35,4 +35,3 @@ class FrittMember(models.Model):
         """This method is used to define if the ribbon VIP will be visible"""
         for record in self:
             record.is_show_vip = False if record.subscription_id.type == 'vip' else True
-            

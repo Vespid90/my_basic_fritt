@@ -20,7 +20,9 @@
                     <field name="name"/>
                     <field name="time"/>
                     <field name="type"/>
-                    <field name="price"/>
+                    <field name="time_access" readonly="1"/>
+                    <field name="price" widget="monetary" readonly="1"/>
+                    <field name="currency_id" column_invisible="True"/>
                     <field name="color" widget="color_picker"/>
                 </list>
             </field>
@@ -34,11 +36,13 @@
                         <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
                         <group>
                             <field name="name"/>
-                            <field name="time"/>
+                            <field name="type"/>
+                            <field name="time_access" readonly="1"/>
                         </group>
                         <group>
-                            <field name="type"/>
-                            <field name="price"/>
+                            <field name="time"/>
+                            <field name="price" widget="monetary" readonly="1"/>
+                            <field name="currency_id" invisible="True" readonly="1"/>
                         </group>
                         <chatter/>
                     </sheet>
@@ -52,6 +56,17 @@
                 <calendar date_start="date_today">
                     <field name="name"/>
                 </calendar>
+            </field>
+        </record>
+        <record id="fritt_subscription_action_share" model="ir.actions.server">
+            <field name="name">Share subscription info</field>
+            <field name="model_id" ref="model_fritt_subscription"/>
+            <field name="binding_view_types">form</field>
+            <field name="state">code</field>
+            <field name="code">
+                for record in records:
+                    sub_info = f"Subscription type: {record.type}, subscription time: {record.time_access} days per month, price: {record.price} dollars"
+                    record.message_post(body=sub_info)
             </field>
         </record>
         <record id="open_view_fritt_subscription_action" model="ir.actions.act_window">

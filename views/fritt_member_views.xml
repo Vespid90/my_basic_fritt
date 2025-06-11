@@ -6,6 +6,8 @@
             <field name="model">fritt.member</field>
             <field name="arch" type="xml">
                 <search string="Members">
+                    <field name="name"/>
+                    <field name="subscription_id" string="Subscription"/>
                     <separator/>
                     <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
                     <group expand="0" string="Group By">
@@ -37,6 +39,15 @@
             <field name="arch" type="xml">
                 <form>
                     <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="open_view_list_lessons" type="object" icon="fa-book"
+                                    class="oe_stat_button" invisible="lesson_count == 0" widget="statinfo">
+                                <div class="o_stat_info">
+                                    <field name="lesson_count" class="o_stat_value"/>
+                                    <span class="o_stat_text">Lessons</span>
+                                </div>
+                            </button>
+                        </div>
                         <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
                         <field name="photo" widget="image" class="oe_avatar"/>
                         <div class="oe_title">
@@ -70,7 +81,7 @@
                     <templates>
                         <t t-name="card" class="flex-row">
                             <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
-                            <widget name="web_ribbon" title="VIP" bg_color="text-bg-success" invisible="is_show_vip"/>
+                                <widget name="web_ribbon" title="VIP" bg_color="text-bg-success" invisible="is_show_vip"/>
                             <aside class="o_kanban_aside_full">
                                 <div class="o_kanban_image_fill position-relative w-100">
                                     <field name="photo" alt="phot member" class="h-100" widget="image"

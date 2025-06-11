@@ -23,7 +23,6 @@
                     <field name="time_access" readonly="1"/>
                     <field name="price" widget="monetary" readonly="1"/>
                     <field name="currency_id" column_invisible="True"/>
-                    <field name="color" widget="color_picker"/>
                 </list>
             </field>
         </record>

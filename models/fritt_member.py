@@ -20,6 +20,18 @@ class FrittMember(models.Model):
         comodel_name='fritt.group.lesson',
         string='Courses'
     )
+    lesson_count = fields.Integer(string="Lesson count", compute='_compute_lesson_count')
+
+    @api.depends('subscription_id')
+    def _is_show_vip(self):
+        """This compute method is used to define if the ribbon VIP will be visible"""
+        for record in self:
+            record.is_show_vip = False if record.subscription_id.type == 'vip' else True
+
+    @api.depends('group_lesson_ids')
+    def _compute_lesson_count(self):
+        """This compute method is used to count the number of lessons per member"""
+        self.lesson_count = len(self.group_lesson_ids)
 
     @api.model
     def default_get(self, fields_list):
@@ -30,7 +42,13 @@ class FrittMember(models.Model):
 
         return defaults
 
-    @api.depends('subscription_id')
-    def _is_show_vip(self):
-        for record in self:
-            record.is_show_vip = False if record.subscription_id.type == 'vip' else True
+    def open_view_list_lessons(self):
+        return {
+            'name': 'Lessons',
+            'view_mode': 'list',
+            'views': [[False, 'list']],
+            'domain': [('member_registered.id','=',self.id)],
+            'res_model': 'fritt.group.lesson',
+            'type': 'ir.actions.act_window',
+            'context': {'create': False},
+        }

@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 review_max_note = 10
 review_list_note = [("null", "Pas de note")]
@@ -60,3 +61,13 @@ class GroupeLesson(models.Model):
     @api.onchange('end_lesson')
     def _quantity_pc(self):
             self.cal_duration()
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        for record in self.search([]):
+            for vals in vals_list:
+                if fields.Date.from_string(record.date_lesson) == fields.Date.from_string(
+                        vals.get('date_lesson')) and record.trainer_id.id == vals.get('trainer_id'):
+                    raise ValidationError('Ce coach est déjà pris. Veuillez sélectionner un autre coach.')
+        results = super().create(vals_list)
+        return results

@@ -3,6 +3,7 @@ from odoo import models, fields, api
 class FrittTrainer(models.Model):
     _name = 'fritt.trainer'
     _description = "My Basic Fritt"
+    _inherit = 'mail.thread'
 
     active = fields.Boolean(string="Active", default='True')
     name = fields.Char(string='Name')

@@ -21,7 +21,7 @@ class GroupeLesson(models.Model):
     end_lesson = fields.Char(string="end lesson")
     member_max=fields.Integer(string="member max")
     roam = fields.Selection(selection=[("parquet", "Parquet"), ("mini_football", "Mini football"), ("dojo", "Dojo")])
-    note = fields.Selection(tracking=True,selection=review_list_note,default='null',string="Note")
+    note = fields.Selection(selection=review_list_note,default='null',string="Note")
     # relation
 
     active = fields.Boolean(string="active")

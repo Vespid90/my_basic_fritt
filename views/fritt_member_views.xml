@@ -36,6 +36,15 @@
             <field name="model">fritt.member</field>
             <field name="arch" type="xml">
                 <form>
+                    <div class="oe_button_box" name="button_box">
+                            <button name="open_view_list_lessons" type="object" icon="fa-book"
+                                    class="oe_stat_button" invisible="lesson_count == 0" widget="statinfo">
+                                <div class="o_stat_info">
+                                    <field name="lesson_count" class="o_stat_value"/>
+                                    <span class="o_stat_text">Lessons</span>
+                                </div>
+                            </button>
+                        </div>
                     <sheet>
                         <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
                         <field name="photo" widget="image" class="oe_avatar"/>

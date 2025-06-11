@@ -43,7 +43,7 @@
             <field name="res_model">fritt.group.lesson</field>
             <field name="view_mode">kanban,list,form</field>
             <field name="search_view_id" ref="group_lesson_search"/>
-            <!--      <field name="context">{'default_active': True}  </field>-->
+            <field name="context">{'default_active': True}</field>
         </record>
 
 

@@ -1,4 +1,6 @@
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
+
 
 class FrittTrainer(models.Model):
     _name = 'fritt.trainer'

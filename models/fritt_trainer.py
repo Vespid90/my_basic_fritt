@@ -15,7 +15,7 @@ class FrittTrainer(models.Model):
     ], string="Specialty")
     image = fields.Binary(string="Image")
     planned_lesson_ids = fields.One2many(comodel_name="fritt.group.lesson", inverse_name="trainer_id", string="Planned Lessons")
-    planned_lesson_count = fields.Integer(string="Planned Lessons", compute="_compute_planned_lesson")
+    planned_lesson_count = fields.Integer(string="Total Planned Lessons", compute="_compute_planned_lesson")
 
 
 

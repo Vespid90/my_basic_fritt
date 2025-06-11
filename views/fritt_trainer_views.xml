@@ -51,6 +51,7 @@
                             <field name="planned_lesson_ids"/>
                         </group>
                     </sheet>
+                    <chatter/>
                 </form>
             </field>
         </record>

@@ -1,97 +1,111 @@
 <odoo>
-<data>
+    <data>
 
-    <record model="ir.ui.view" id="group_lesson_search">
-      <field name="name">fritt.group.lesson.search</field>
-      <field name="model">fritt.group.lesson</field>
-      <field name="arch" type="xml">
-          <search>
-              <filter string="archived" name="filtre_inactive" domain="[('active','=',False)]"/>
+        <record model="ir.ui.view" id="group_lesson_search">
+            <field name="name">fritt.group.lesson.search</field>
+            <field name="model">fritt.group.lesson</field>
+            <field name="arch" type="xml">
+                <search>
+                    <filter string="archived" name="filtre_inactive" domain="[('active','=',False)]"/>
 
-          </search>
-
-
-      </field>
-    </record>
-    <record model="ir.ui.view" id="group_lesson_list">
-      <field name="name">fritt.group.lesson.list</field>
-      <field name="model">fritt.group.lesson</field>
-      <field name="arch" type="xml">
-        <list>
-              <field name="sequence" widget="handle"/>
-              <field name="name"/>
-              <field name="trainer_id"/>
-              <field name="date_lesson"/>
-              <field name="duration"/>
-              <field name="start_lesson"/>
-              <field name="end_lesson"/>
-              <field name="member_max"/>
-              <field name="roam"/>
-              <field name="note" widget="priority"/>
-              <field name="member_registered_number"/>
-              <field name="member_registered" widget="many2many_tags"/>
-              <field name="cover"/>
-              <field name="active"/>
-        </list>
-      </field>
-
-    </record>
-    <record id="my_group_actions_window" model="ir.actions.act_window" >
-      <field name="name">group lesson</field>
-      <field name="res_model">fritt.group.lesson</field>
-      <field name="view_mode">kanban,list,form</field>
-      <field name="search_view_id" ref="group_lesson_search"/>
-<!--      <field name="context">{'default_active': True}  </field>-->
-    </record>
+                </search>
 
 
-    <record model="ir.ui.view" id="group_lesson_form">
+            </field>
+        </record>
+        <record model="ir.ui.view" id="group_lesson_list">
+            <field name="name">fritt.group.lesson.list</field>
+            <field name="model">fritt.group.lesson</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="trainer_id"/>
+                    <field name="date_lesson"/>
+                    <field name="dur"/>
+                    <field name="roam"/>
+                    <field name="member_max"/>
+                    <button name="cancel" type="object"
+                            string="cancel"
+                            class="btn-primary"/>
+                    <!--                    <field name="note" widget="priority"/>-->
+                    <!--                    <field name="member_registered_number"/>-->
+                    <!--                    <field name="member_registered_ids" widget="many2many_tags"/>-->
+                    <!--                    <field name="cover"/>-->
+                    <!--                    <field name="active"/>-->
+                </list>
 
-      <field name="name">fritt.group.lesson.form</field>
-      <field name="model">fritt.group.lesson</field>
-      <field name="arch" type="xml">
-          <form>
-              <sheet>
-                   <widget name="web_ribbon" text="Archived" bg_color="bg-danger" invisible="active"/>
-                   <div class="oe_title">
-                        <h1>
-                            <field name="name" readonly="1"/>
-                        </h1>
-                    </div>
-                    <group>
+            </field>
+
+        </record>
+        <record id="my_group_actions_window" model="ir.actions.act_window">
+            <field name="name">group lesson</field>
+            <field name="res_model">fritt.group.lesson</field>
+            <field name="view_mode">kanban,list,form</field>
+            <field name="search_view_id" ref="group_lesson_search"/>
+            <!--      <field name="context">{'default_active': True}  </field>-->
+        </record>
+
+
+        <record model="ir.ui.view" id="group_lesson_form">
+
+            <field name="name">fritt.group.lesson.form</field>
+            <field name="model">fritt.group.lesson</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <widget name="web_ribbon" text="Archived" bg_color="bg-danger" invisible="active"/>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" readonly="1"/>
+                            </h1>
+                        </div>
                         <group>
-                          <field name="name"/>
-                          <field name="trainer_id"/>
-                          <field name="date_lesson"/>
-                          <field name="duration"/>
-                          <field name="start_lesson"/>
-                          <field name="end_lesson"/>
-
-                        </group>
-                    <group>
-                          <field name="member_max"/>
-                          <field name="roam"/>
-                          <field name="note" widget="priority"/>
-                          <field name="member_registered_number"/>
-                          <field name="active"/>
-                          <field name="cover" alt="cover-image" class="h-100" widget="image" options="{'img_class': 'object-fit-cover'}"/>
-                    </group>
-                   <group>
-                    <notebook>
-                        <page string="member">
                             <group>
-                                <field name="member_registered" nolabel="1"/>
-                            </group>
-                        </page>
-                    </notebook>
-                </group>
-                </group>
-            </sheet>
-          </form>
-      </field>
+                                <field name="name"/>
+                                <field name="trainer_id"/>
+                                <field name="date_lesson"/>
+                                <field name="dur" readonly="1" widget="float_time" class="oe_inline"/>
+                                <field name="start_lesson" widget="float_time" class="oe_inline"/>
+                                <field name="end_lesson" widget="float_time" class="oe_inline"/>
 
-    </record>
-<record id="group_lesson_kanban" model="ir.ui.view">
+                            </group>
+                            <group>
+
+                                <field name="note" widget="priority"/>
+                                <field name="member_registered_number"/>
+                                <field name="active"/>
+                                <field name="cover" alt="cover-image" class="h-100" widget="image"
+                                       options="{'size' : [300,300] }"/>
+
+                            </group>
+                            <group>
+                                <notebook>
+                                    <page string="practical information">
+                                        <group>
+                                            <field name="member_max"/>
+                                            <field name="roam"/>
+                                        </group>
+                                    </page>
+                                    <page string="comment">
+                                        <group>
+                                            <field name="comment" nolabel="1"/>
+                                        </group>
+                                    </page>
+                                    <page string="member">
+                                        <group>
+                                            <field name="member_registered_ids" nolabel="1"/>
+                                        </group>
+                                    </page>
+                                </notebook>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+
+        </record>
+        <record id="group_lesson_kanban" model="ir.ui.view">
             <field name="name">fritt.group.lesson.kanban</field>
             <field name="model">fritt.group.lesson</field>
             <field name="arch" type="xml">
@@ -100,18 +114,18 @@
                         <t t-name="card" class="flex-row">
 
                             <aside class="o_kanban_aside_full">
-                                  <div class="o_kanban_image_fill position-relative w-100">
-                                      <field name="cover" alt="cover-image" class="h-100" widget="image" options="{'img_class': 'object-fit-cover'}"/>
-                                  </div>
+                                <div class="o_kanban_image_fill position-relative w-100">
+                                    <field name="cover" alt="cover-image" class="h-100" widget="image"
+                                           options="{'img_class': 'object-fit-cover'}"/>
+                                </div>
                             </aside>
                             <main class="ps-2 ps-md-0">
                                 <div class="mb-1">
                                     <field name="name"/>
                                 </div>
-                                    <field name="trainer_id"/>
-                                    <field name="date_lesson"/>
-                                    <field name="duration"/>
-                                    <field name="start_lesson"/>
+                                <field name="trainer_id"/>
+                                <field name="member_max"/>
+                                <field name="roam"/>
                             </main>
                         </t>
                     </templates>
@@ -120,10 +134,10 @@
         </record>
 
 
+        <menuitem id="group_lesson_menu" name="Group Lesson" parent="fritt_member_root" sequence="3"
+                  action="my_group_actions_window"/>
 
-<menuitem id="group_lesson_menu" name="Group Lesson"  parent="fritt_member_root" sequence="3" action="my_group_actions_window"/>
-
-</data>
+    </data>
 
 
 </odoo>

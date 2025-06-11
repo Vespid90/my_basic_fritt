@@ -70,7 +70,7 @@
                     <templates>
                         <t t-name="card" class="flex-row">
                             <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
-                            <widget name="web_ribbon" title="VIP" bg_color="text-bg-success" invisible="is_show_vip"/>
+                                <widget name="web_ribbon" title="VIP" bg_color="text-bg-success" invisible="is_show_vip"/>
                             <aside class="o_kanban_aside_full">
                                 <div class="o_kanban_image_fill position-relative w-100">
                                     <field name="photo" alt="phot member" class="h-100" widget="image"

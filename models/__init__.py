@@ -1,1 +1,4 @@
-from . import fritt_member,group_lesson,fritt_subscription,fritt_trainer
+from . import fritt_member
+from . import group_lesson
+from . import fritt_subscription
+from . import fritt_trainer

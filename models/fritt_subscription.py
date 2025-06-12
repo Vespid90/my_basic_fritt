@@ -10,12 +10,12 @@ class FrittSubscription(models.Model):
 
     active = fields.Boolean(string='Active', default=True)
 
-    name = fields.Char(string='Subscription name', required=True, translate=True)
+    name = fields.Char(string='Subscription name', required=True)#translate=true ; à voir comment l'intégrer
     description = fields.Char(string="Member's subscription")
 
     date_today = fields.Datetime()
 
-    price = fields.Float(string='Price')#changer en moneray avec currency_field=currency_id
+    price = fields.Monetary(string='Price', currency_field='currency_id')
 
     time = fields.Integer(string='Subscription time remaining')
     sequence = fields.Integer(default=10)

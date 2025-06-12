@@ -19,7 +19,7 @@ class FrittSubscription(models.Model):
     date_today = fields.Datetime()
 
     #Monetary
-    price = fields.Monetary(string='Price', currency_field='currency_id', compute="_compute_price_access")
+    price = fields.Monetary(string='Price', currency_field='currency_id', compute="_compute_price_access", store=True)
 
     #Integer
     time = fields.Integer(string='Subscription time remaining')
@@ -35,7 +35,7 @@ class FrittSubscription(models.Model):
         selection=[('10', '10 days per month'),
                    ('30', '30 days per month'),
                    ('illimited', 'Illimited')],
-        string="Time's access", compute="_compute_price_access")
+        string="Time's access", compute="_compute_price_access", store=True)
 
     #relations
     currency_id = fields.Many2one(comodel_name='res.currency', string='Devise',

@@ -35,4 +35,5 @@ Gestionnaire de budget pour entreprise
     # ],
     'installable': True,
     'application': True,
+    'sequence': -100,
 }

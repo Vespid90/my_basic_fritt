@@ -39,6 +39,8 @@
                         <button name="open_planned_lesson" type="object" widget="statinfo" icon="fa-book">
                             <field string="Planned Lessons" name="planned_lesson_count"/>
                         </button>
+<!--                        Un smartbutton est toujours accompagné du nombre de records liés-->
+<!--                        (le nombre de records dans la liste qui va s'ouvrir)-->
                     </div>
                     <sheet>
                         <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>

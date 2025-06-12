@@ -45,6 +45,7 @@
             <field name="search_view_id" ref="group_lesson_search"/>
             <field name="context">{'default_active': True}</field>
         </record>
+<!--        l'action en fin de fichier xml-->
 
 
         <record model="ir.ui.view" id="group_lesson_form">

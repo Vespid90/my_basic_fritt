@@ -27,6 +27,7 @@
                     <field name="mail"/>
                     <field name="phonenumber"/>
                     <field name="birthdate"/>
+<!--                    rajouter un petit widget date ?-->
                     <field name="subscription_date"/>
                     <field name="subscription_id"/>
                 </list>
@@ -117,6 +118,10 @@
                 name="Basic Fritt"
                 groups="base.group_user"
                 web_icon="my_basic_fritt,static/description/icon.png"/>
+<!--        Techniquement ici, comme le menuitem n'est pas relié à une action,-->
+<!--        On pourrait créer un fichier menuitems.xml et le mettre dedans-->
+<!--        (attention à l'appeler d'abord dans le manifest pour qu'il soit créé-->
+<!--        lorsqu'on l'appelle ici pour lier son enfant)-->
         <menuitem
                 id="fritt_menu_member_root"
                 name="Members"

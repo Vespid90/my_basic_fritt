@@ -32,6 +32,7 @@ class FrittMember(models.Model):
     def _compute_lesson_count(self):
         """This compute method is used to count the number of lessons per member"""
         self.lesson_count = len(self.group_lesson_ids)
+        # Toujours boucler dans self pour un compute : for rec in self
 
     @api.model
     def default_get(self, fields_list):
@@ -41,6 +42,9 @@ class FrittMember(models.Model):
             defaults['subscription_date'] = fields.Date.today()
 
         return defaults
+    # C'est correct mais il y a une façon plus simple de faire en mettant le default directement dans la déclaration du champ
+    # exemple :     date = fields.Date(required=True, default=lambda self: fields.Date.context_today(self))
+
 
     def open_view_list_lessons(self):
         return {

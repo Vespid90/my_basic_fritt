@@ -6,6 +6,7 @@ class FrittTrainer(models.Model):
     _name = 'fritt.trainer'
     _description = "My Basic Fritt"
     _inherit = 'mail.thread'
+    # rajouter mail.activity.mixin
 
     active = fields.Boolean(string="Active", default='True')
     name = fields.Char(string='Name')
@@ -35,5 +36,7 @@ class FrittTrainer(models.Model):
             'view_mode': 'kanban,list,form',
             'domain': [('trainer_id', '=', self.name)]
         }
+        # trainer_id = self.name ? Cela ne devrait-il pas être trainer_id = self.id
+        # + on peut faire le return directement (pas besoin de passer par la variable intermédiaire action)
 
         return action

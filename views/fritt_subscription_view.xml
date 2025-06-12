@@ -22,6 +22,7 @@
                     <field name="type"/>
                     <field name="time_access" readonly="1"/>
                     <field name="price" widget="monetary" readonly="1"/>
+<!--                    super le widget sur le price!-->
                     <field name="currency_id" column_invisible="True"/>
                 </list>
             </field>

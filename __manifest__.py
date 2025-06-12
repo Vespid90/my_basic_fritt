@@ -17,6 +17,8 @@ Gestionnaire de budget pour entreprise
     # for the full list
     'category': 'My basic fritt',
     'version': '0.1',
+    # La version d'un module odoo doit toujours commencer par la version odoo sur lequel il tourne
+    # ici cela devrait être 18.1 ou 18.0.0.1
 
     # any module necessary for this one to work correctly
     'depends': ['base', 'mail'],

@@ -36,11 +36,11 @@
                         <group>
                             <field name="name"/>
                             <field name="type"/>
-                            <field name="time_access" readonly="1"/>
+                            <field name="time_access"/>
                         </group>
                         <group>
                             <field name="time"/>
-                            <field name="price" widget="monetary" readonly="1"/>
+                            <field name="price" widget="monetary"/>
                             <field name="currency_id" invisible="True" readonly="1"/>
                         </group>
                         <chatter/>
